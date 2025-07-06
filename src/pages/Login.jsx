@@ -10,7 +10,7 @@ export default function Login({ onLogin }) {
     e.preventDefault();
     setError(''); // Reset error message
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', { username, password }, {headers:{'Content-Type': 'application/json'}});
+      const res = await axios.post('https://your-backend-name.onrender.com/api/auth/login', { username, password }, {headers:{'Content-Type': 'application/json'}});
       if(res.data?.token) {
       localStorage.setItem('token', res.data.token);
       onLogin(); // go to dashboard
