@@ -1,6 +1,6 @@
 import axios from 'axios';
 const API = axios.create({
-    baseURL: 'https://your-backend-name.onrender.com/api'
+    baseURL: 'https://trashclash-backend.onrender.com/api'
   });
   
   // 🔐 Add token dynamically before every request
