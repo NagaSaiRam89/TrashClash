@@ -28,9 +28,9 @@ export default function StrategyList({ mode, isAdmin = true }) {
     } else {
       await addStrategy(data);
     }
+    fetchData();
     setShowForm(false);
     setEditingStrategy(null);
-    fetchData();
   };
 
   const handleDelete = async (id) => {
