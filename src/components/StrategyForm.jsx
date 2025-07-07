@@ -1,57 +1,75 @@
 import React, { useState } from 'react';
 
-
-export default function StrategyForm({ onSubmit, onCancel, initialData = {} }) {
-  const [formData, setFormData] = useState({
-    name: '',
-    troop_combo: '',
-    tips: '',
-    mode: 'builder',
-    image_url: '',
-    ...initialData
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
+export default function StrategyForm({ initialData = {}, onSubmit, onCancel }) {
+  const [name, setName] = useState(initialData.name || '');
+  const [troopCombo, setTroopCombo] = useState(initialData.troop_combo || '');
+  const [tips, setTips] = useState(initialData.tips || '');
+  const [imageUrl, setImageUrl] = useState(initialData.image_url || '');
+  const [mode, setMode] = useState(initialData.mode || 'builder');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData);
+    onSubmit({
+      id: initialData.id,
+      name,
+      troop_combo: troopCombo,
+      tips,
+      image_url: imageUrl,
+      mode,
+    });
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ border: '1px solid #ccc', padding: '1rem', marginBottom: '1rem' }}>
-      <h3>{initialData?.id ? 'Edit Strategy' : 'Add Strategy'}</h3>
-
-      <input name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
-      <br />
-
-      <input name="troop_combo" placeholder="Troop Combo" value={formData.troop_combo} onChange={handleChange} />
-      <br />
-
-      <textarea name="tips" placeholder="Tips" value={formData.tips} onChange={handleChange} />
-      <br />
-
+    <form onSubmit={handleSubmit} className="bg-white p-4 border rounded shadow mt-4 space-y-4">
       <input
-      type="text"
-      placeholder="Image URL"
-      value={formData.image_url || ''}
-      onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
-      className="p-2 border rounded w-full mb-2"
-    />
-      <br />
-      
+        type="text"
+        placeholder="Strategy Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        required
+        className="w-full border p-2 rounded"
+      />
+      <input
+        type="text"
+        placeholder="Troop Combo"
+        value={troopCombo}
+        onChange={(e) => setTroopCombo(e.target.value)}
+        required
+        className="w-full border p-2 rounded"
+      />
+      <textarea
+        placeholder="Tips"
+        value={tips}
+        onChange={(e) => setTips(e.target.value)}
+        required
+        className="w-full border p-2 rounded"
+      />
+     
+      <input
+        type="text"
+        placeholder="Image URL"
+        value={imageUrl}
+        onChange={(e) => setImageUrl(e.target.value)}
+        className="w-full border p-2 rounded"
+      />
 
-      <select name="mode" value={formData.mode} onChange={handleChange}>
+       <select
+        value={mode}
+        onChange={(e) => setMode(e.target.value)}
+        className="w-full border p-2 rounded"
+      >
         <option value="builder">Builder</option>
         <option value="town">Town</option>
       </select>
-      <br /><br />
-
-      <button type="submit">Save</button>
-      <button type="button" onClick={onCancel} style={{ marginLeft: '1rem' }}>Cancel</button>
+      
+      <div className="flex gap-2">
+        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
+          Save
+        </button>
+        <button type="button" onClick={onCancel} className="bg-gray-400 text-white px-4 py-2 rounded">
+          Cancel
+        </button>
+      </div>
     </form>
   );
 }
