@@ -1,85 +1,92 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default function StrategyForm({ initialData , onSubmit, onCancel }) {
-  initialData = initialData || {};
-  const [name, setName] = useState(initialData?.name || '');
-  const [troopCombo, setTroopCombo] = useState(initialData?.troop_combo || '');
-  const [tips, setTips] = useState(initialData?.tips || '');
-  const [imageUrl, setImageUrl] = useState(initialData?.image_url || '');
-  const [mode, setMode] = useState(initialData?.mode || 'builder');
+export default function StrategyForm({ initialData = {}, onSubmit, onCancel }) {
+  const [formData, setFormData] = useState({
+    name: '',
+    troop_combo: '',
+    tips: '',
+    image_url: '',
+    mode: 'builder',
+    ...initialData,
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const strategyData = {
-      id: initialData?.id, //for safe access
-      name,
-      troop_combo: troopCombo,
-      tips,
-      image_url: imageUrl,
-      mode,
+      ...formData,
     };
 
-    if (!name || !troopCombo || !tips) {
-      alert('Please fill in all required fields');
+    if (!formData.name || !formData.troop_combo || !formData.tips) {
+      alert('Please fill in all required fields.');
       return;
     }
 
-    onSubmit(strategyData); // this should never be null now
+    onSubmit(strategyData);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 p-4 border mt-4 rounded bg-white shadow">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-4 p-4 border mt-4 rounded bg-white shadow"
+    >
       <h2 className="text-lg font-bold">
-        {initialData?.id ? 'Edit Strategy' : 'Add Strategy'}
+        {formData.id ? 'Edit Strategy' : 'Add Strategy'}
       </h2>
 
       <input
+        name="name"
         type="text"
         placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        value={formData.name}
+        onChange={handleChange}
         className="w-full p-2 border rounded"
         required
       />
 
       <input
+        name="troop_combo"
         type="text"
         placeholder="Troop Combo"
-        value={troopCombo}
-        onChange={(e) => setTroopCombo(e.target.value)}
+        value={formData.troop_combo}
+        onChange={handleChange}
         className="w-full p-2 border rounded"
         required
       />
 
       <textarea
+        name="tips"
         placeholder="Tips"
-        value={tips}
-        onChange={(e) => setTips(e.target.value)}
+        value={formData.tips}
+        onChange={handleChange}
         className="w-full p-2 border rounded"
         required
       />
 
-     
-
       <input
+        name="image_url"
         type="text"
         placeholder="Image URL"
-        value={imageUrl}
-        onChange={(e) => setImageUrl(e.target.value)}
+        value={formData.image_url}
+        onChange={handleChange}
         className="w-full p-2 border rounded"
       />
 
-       <select
-        value={mode}
-        onChange={(e) => setMode(e.target.value)}
+      <select
+        name="mode"
+        value={formData.mode}
+        onChange={handleChange}
         className="w-full p-2 border rounded"
       >
         <option value="builder">Builder Hall</option>
         <option value="town">Town Hall</option>
       </select>
 
-      
       <div className="flex gap-4">
         <button
           type="submit"
