@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
 export default function StrategyForm({ initialData = {}, onSubmit, onCancel }) {
-  const [name, setName] = useState(initialData.name || '');
-  const [troopCombo, setTroopCombo] = useState(initialData.troop_combo || '');
-  const [tips, setTips] = useState(initialData.tips || '');
-  const [imageUrl, setImageUrl] = useState(initialData.image_url || '');
-  const [mode, setMode] = useState(initialData.mode || 'builder');
+const [name, setName] = useState(initialData?.name || '');
+const [troopCombo, setTroopCombo] = useState(initialData?.troop_combo || '');
+const [tips, setTips] = useState(initialData?.tips || '');
+const [mode, setMode] = useState(initialData?.mode || 'builder');
+const [imageUrl, setImageUrl] = useState(initialData?.image_url || '');
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
