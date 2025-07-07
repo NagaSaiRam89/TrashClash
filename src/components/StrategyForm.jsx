@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-export default function StrategyForm({ initialData = {}, onSubmit, onCancel }) {
+export default function StrategyForm({ initialData , onSubmit, onCancel }) {
+  initialData = initialData || {};
   const [name, setName] = useState(initialData?.name || '');
   const [troopCombo, setTroopCombo] = useState(initialData?.troop_combo || '');
   const [tips, setTips] = useState(initialData?.tips || '');
@@ -11,7 +12,7 @@ export default function StrategyForm({ initialData = {}, onSubmit, onCancel }) {
     e.preventDefault();
 
     const strategyData = {
-      id: initialData?.id, // include ID if editing
+      id: initialData?.id, //for safe access
       name,
       troop_combo: troopCombo,
       tips,
