@@ -6,7 +6,6 @@ import LayoutList from '../components/LayoutList';
 import StrategyList from '../components/StrategyList';
 import Login from './Login';
 import StickyNavbar from '../components/StickyNavbar';
-import logo from '../ChatGPT Image Jul 4, 2025, 12_40_21 PM.png' 
 
 export default function Homepage({ mode, setMode, onLogin, onLogout }) {
   const heroRef = useRef(null);
@@ -40,7 +39,7 @@ export default function Homepage({ mode, setMode, onLogin, onLogout }) {
   {/* Fullscreen black overlay */}
   <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center text-white text-center gap-4">
     {/* Logo and Title */}
-    <img src="/tclogo.png" alt="TrashClash Logo" className="h-25 w-25 mb-2" />
+    <img src="/tclogo.png" alt="TrashClash Logo" className="h-24 w-24 mb-2" />
     <h1 className="text-4xl md:text-6xl font-bold">Welcome to TrashClash</h1>
     <p className="mt-2 text-lg md:text-xl">Your ultimate CoC base and strategy guide</p>
 
