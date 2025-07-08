@@ -40,7 +40,7 @@ export default function Homepage({ mode, setMode, onLogin, onLogout }) {
   {/* Fullscreen black overlay */}
   <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center text-white text-center gap-4">
     {/* Logo and Title */}
-    <img src="/tclogo.png" alt="TrashClash Logo" className="h-30 w-30 mb-2" />
+    <img src="/tclogo.png" alt="TrashClash Logo" className="h-25 w-25 mb-2" />
     <h1 className="text-4xl md:text-6xl font-bold">Welcome to TrashClash</h1>
     <p className="mt-2 text-lg md:text-xl">Your ultimate CoC base and strategy guide</p>
 
