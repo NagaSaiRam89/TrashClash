@@ -6,6 +6,7 @@ import LayoutList from '../components/LayoutList';
 import StrategyList from '../components/StrategyList';
 import Login from './Login';
 import StickyNavbar from '../components/StickyNavbar';
+import logo from '../ChatGPT Image Jul 4, 2025, 12_40_21 PM.png' 
 
 export default function Homepage({ mode, setMode, onLogin, onLogout }) {
   const heroRef = useRef(null);
@@ -35,7 +36,13 @@ export default function Homepage({ mode, setMode, onLogin, onLogout }) {
         style={{ backgroundImage: `url(https://imghost.online/ib/mZt7BrgrtEsFRKX_1751527103.jpg)` }}
       >
         <div className="h-full flex flex-col justify-center items-center gap-6">
-          <h1 className="text-5xl font-extrabold text-white drop-shadow-lg">TrashClash 🛡️</h1>
+{/*           <h1 className="text-5xl font-extrabold text-white drop-shadow-lg">TrashClash 🛡️</h1>
+*/}
+          <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center text-white text-center">
+          <img src="{logo}" alt="TrashClash Logo" className="h-24 w-24 mb-4" />
+          <h1 className="text-4xl md:text-6xl font-bold">Welcome to TrashClash</h1>
+          <p className="mt-2 text-lg md:text-xl">Your ultimate CoC base and strategy guide</p>
+          </div>
           <div class="inline-flex">
             <button className="bg-blue-500 hover:bg-blue-700 text-gray-800 font-bold py-2 px-4 rounded-l"
             onClick={() => setMode('builder')}
