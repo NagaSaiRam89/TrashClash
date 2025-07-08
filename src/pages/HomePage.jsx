@@ -29,36 +29,39 @@ export default function Homepage({ mode, setMode, onLogin, onLogout }) {
     <div>
       {/* Hero Section */}
       <div
-        ref={heroRef}
-        className={`h-screen bg-cover bg-center transition-opacity duration-700 ease-in-out ${
-          scrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'
-        }`}
-        style={{ backgroundImage: `url(https://imghost.online/ib/mZt7BrgrtEsFRKX_1751527103.jpg)` }}
+  ref={heroRef}
+  className={`h-screen bg-cover bg-center transition-opacity duration-700 ease-in-out ${
+    scrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'
+  }`}
+  style={{
+    backgroundImage: `url(https://imghost.online/ib/mZt7BrgrtEsFRKX_1751527103.jpg)`,
+  }}
+>
+  {/* Fullscreen black overlay */}
+  <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center text-white text-center gap-4">
+    {/* Logo and Title */}
+    <img src="/tclogo.png" alt="TrashClash Logo" className="h-30 w-30 mb-2" />
+    <h1 className="text-4xl md:text-6xl font-bold">Welcome to TrashClash</h1>
+    <p className="mt-2 text-lg md:text-xl">Your ultimate CoC base and strategy guide</p>
+
+    {/* Buttons under caption */}
+    <div className="mt-6 flex gap-2">
+      <button
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-l"
+        onClick={() => setMode('builder')}
       >
-        <div className="h-full flex flex-col justify-center items-center gap-6">
-{/*           <h1 className="text-5xl font-extrabold text-white drop-shadow-lg">TrashClash 🛡️</h1>
-*/}
-          <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center text-white text-center">
-          <img src="{logo}" alt="TrashClash Logo" className="h-24 w-24 mb-4" />
-          <h1 className="text-4xl md:text-6xl font-bold">Welcome to TrashClash</h1>
-          <p className="mt-2 text-lg md:text-xl">Your ultimate CoC base and strategy guide</p>
-          </div>
-          <div class="inline-flex">
-            <button className="bg-blue-500 hover:bg-blue-700 text-gray-800 font-bold py-2 px-4 rounded-l"
-            onClick={() => setMode('builder')}
-            >
-              Builder Hall
-            </button>
-            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
-            onClick={() => setMode('town')}
-            >
-              Town Hall
-            </button>
-          </div>
+        Builder Hall
+      </button>
+      <button
+        className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
+        onClick={() => setMode('town')}
+      >
+        Town Hall
+      </button>
+    </div>
+  </div>
+</div>
 
-
-        </div>
-      </div>
 
       {/* Sticky Nav */}
       {/* <div
