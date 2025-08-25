@@ -1,9 +1,9 @@
 # TRASH-CLASH | Full-Stack Clash of Clans Strategy Platform
 
-![Project Banner](https://raw.githubusercontent.com/your-username/your-repo-name/main/assets/banner.png)
+![Project Banner](https://imghost.online/ib/mZt7BrgrtEsFRKX_1751527103.jpg)
 A dynamic, full-stack web application built for the Clash of Clans community, providing a centralized platform to discover, share, and manage game strategies and base layouts.
 
-**Live Demo:** [**trash-clash.vercel.app**](https://trash-clash.vercel.app)
+**Live Demo:** [**trash-clash.vercel.app**](https://trash-clash.vercel.app/)
 
 ---
 
@@ -61,12 +61,12 @@ The application follows a classic client-server model:
 
 ```
 
-\+-----------------+      HTTP (REST API)     +-----------------+      SQL    +-----------------+
+\+----------------+      HTTP (REST API)      +-----------------+      SQL    +-----------------+
 |                 | \<---------------------\> |                 | \<-------\> |                 |
 |  React Frontend |                           |  Node.js Backend|             |   PostgreSQL DB |
 |   (on Vercel)   |                           |   (on Render)   |             |   (on Render)   |
 |                 |                           |                 |             |                 |
-\+-----------------+                          +-----------------+             +-----------------+
+\+----------------+                           +-----------------+             +-----------------+
 
 ````
 
@@ -85,37 +85,37 @@ To get a local copy up and running, follow these simple steps.
 ### Installation
 
 1.  **Clone the Frontend & Backend Repositories**
-    ```sh
+    sh
     # Clone the frontend
-    git clone [https://github.com/your-username/trash-clash-frontend.git](https://github.com/your-username/trash-clash-frontend.git)
+    git clone [https://github.com/NagaSaiRam89/TrashClash_server](https://github.com/NagaSaiRam89/TrashClash)
     cd trash-clash-frontend
     npm install
 
     # Clone the backend
-    git clone [https://github.com/your-username/trash-clash-backend.git](https://github.com/your-username/trash-clash-backend.git)
+    git clone [https://github.com/NagaSaiRam89/TrashClash_server](https://github.com/NagaSaiRam89/TrashClash_server)
     cd trash-clash-backend
     npm install
-    ```
+    
 
 2.  **Configure Environment Variables**
-
+    sh
     Create a `.env` file in the root of your **backend** directory and add the following:
-    ```env
+    env
     PORT=5000
     DATABASE_URL="postgresql://YOUR_DB_USER:YOUR_DB_PASSWORD@localhost:5432/trashclash"
     JWT_SECRET="YOUR_SUPER_SECRET_KEY"
-    ```
+    
     Create a `.env` file in the root of your **frontend** directory:
-    ```env
+    env
     VITE_API_URL="http://localhost:5000/api"
-    ```
+    
 
 3.  **Set Up the PostgreSQL Database**
     -   Create a new database named `trashclash`.
     -   Run the SQL scripts located in the `/db` folder of the backend to create the necessary tables (`troops`, `layouts`, `strategies`).
 
 4.  **Run the Application**
-    ```sh
+    sh
     # Run the backend server
     cd trash-clash-backend
     npm start
@@ -123,7 +123,7 @@ To get a local copy up and running, follow these simple steps.
     # Run the frontend development server
     cd trash-clash-frontend
     npm start
-    ```
+    
 
 ---
 
@@ -138,6 +138,5 @@ This project is deployed using a modern CI/CD pipeline:
 
 ## 👤 Contact
 
-Ram - [LinkedIn](https://www.linkedin.com/in/your-linkedin-profile/) - your.email@example.com
+Ram - [LinkedIn](www.linkedin.com/in/naga-sai-ram-sunkara-6302a8248) - ramhere939@gmail.com
 
-Project Link: [https://github.com/your-username/trash-clash](https://github.com/your-username/trash-clash)
