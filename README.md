@@ -1,70 +1,143 @@
-# Getting Started with Create React App
+# TRASH-CLASH | Full-Stack Clash of Clans Strategy Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Project Banner](https://raw.githubusercontent.com/your-username/your-repo-name/main/assets/banner.png)
+A dynamic, full-stack web application built for the Clash of Clans community, providing a centralized platform to discover, share, and manage game strategies and base layouts.
 
-## Available Scripts
+**Live Demo:** [**trash-clash.vercel.app**](https://trash-clash.vercel.app)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📋 Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [About The Project](#about-the-project)
+- [Key Features](#key-features)
+- [Tech Stack](#tech-stack)
+- [Architecture](#architecture)
+- [Getting Started](#getting-started)
+- [Deployment](#deployment)
+- [Contact](#contact)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🚀 About The Project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+TRASH-CLASH was created to solve a common problem for Clash of Clans players: finding up-to-date, effective, and well-organized base layouts and attack strategies. Unlike static guide websites, this platform provides a dynamic and interactive experience where users can filter content by game mode (Town Hall vs. Builder Hall) and type.
 
-### `npm run build`
+The application features a public, read-only view for all users and a secure admin panel for content management, all powered by a robust RESTful API.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ✨ Key Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Dynamic Content Filtering:** Users can instantly filter troops, layouts, and strategies by game mode and type.
+- **Interactive UI:** A responsive and modern user interface built with React and styled with Tailwind CSS.
+- **Image Carousels:** Base layout cards feature auto-sliding image carousels with a pause-on-hover feature to preview multiple base designs.
+- **Secure Admin Panel:** A JWT-based authentication system protects CRUD (Create, Read, Update, Delete) operations for all content.
+- **Pagination:** Efficiently handles large sets of data by paginating layout and strategy lists.
+- **Detailed View Pages:** Clicking on a layout takes the user to a dedicated page with a larger image carousel, detailed description, and a "Use This Layout" link.
+- **CI/CD Pipeline:** Automated deployments for both frontend and backend ensure seamless updates.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🛠️ Tech Stack
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Category           | Technology                               |
+| :----------------- | :--------------------------------------- |
+| **Frontend** | React, Tailwind CSS, Axios, React Router |
+| **Backend** | Node.js, Express.js                      |
+| **Database** | PostgreSQL                               |
+| **Authentication** | JSON Web Tokens (JWT)                    |
+| **Deployment** | Vercel (Frontend), Render (Backend & DB) |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🏗️ Architecture
 
-## Learn More
+The application follows a classic client-server model:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-   **Frontend (Client):** A Single Page Application (SPA) built with **React**. It communicates with the backend via RESTful API calls to fetch and display data.
+-   **Backend (Server):** A **Node.js/Express.js** server that handles business logic, interacts with the database, and exposes a set of API endpoints.
+-   **Database:** A **PostgreSQL** database hosted on Render stores all application data, including users, troops, layouts, and strategies.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
 
-### Code Splitting
+\+-----------------+      HTTP (REST API)     +-----------------+      SQL    +-----------------+
+|                 | \<---------------------\> |                 | \<-------\> |                 |
+|  React Frontend |                           |  Node.js Backend|             |   PostgreSQL DB |
+|   (on Vercel)   |                           |   (on Render)   |             |   (on Render)   |
+|                 |                           |                 |             |                 |
+\+-----------------+                          +-----------------+             +-----------------+
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+````
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🏁 Getting Started
 
-### Making a Progressive Web App
+To get a local copy up and running, follow these simple steps.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Prerequisites
 
-### Advanced Configuration
+-   Node.js (v18.x or later)
+-   npm or yarn
+-   PostgreSQL installed locally
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Installation
 
-### Deployment
+1.  **Clone the Frontend & Backend Repositories**
+    ```sh
+    # Clone the frontend
+    git clone [https://github.com/your-username/trash-clash-frontend.git](https://github.com/your-username/trash-clash-frontend.git)
+    cd trash-clash-frontend
+    npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    # Clone the backend
+    git clone [https://github.com/your-username/trash-clash-backend.git](https://github.com/your-username/trash-clash-backend.git)
+    cd trash-clash-backend
+    npm install
+    ```
 
-### `npm run build` fails to minify
+2.  **Configure Environment Variables**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    Create a `.env` file in the root of your **backend** directory and add the following:
+    ```env
+    PORT=5000
+    DATABASE_URL="postgresql://YOUR_DB_USER:YOUR_DB_PASSWORD@localhost:5432/trashclash"
+    JWT_SECRET="YOUR_SUPER_SECRET_KEY"
+    ```
+    Create a `.env` file in the root of your **frontend** directory:
+    ```env
+    VITE_API_URL="http://localhost:5000/api"
+    ```
+
+3.  **Set Up the PostgreSQL Database**
+    -   Create a new database named `trashclash`.
+    -   Run the SQL scripts located in the `/db` folder of the backend to create the necessary tables (`troops`, `layouts`, `strategies`).
+
+4.  **Run the Application**
+    ```sh
+    # Run the backend server
+    cd trash-clash-backend
+    npm start
+
+    # Run the frontend development server
+    cd trash-clash-frontend
+    npm start
+    ```
+
+---
+
+## 🌐 Deployment
+
+This project is deployed using a modern CI/CD pipeline:
+
+-   The **React frontend** is deployed on **Vercel**, which is connected directly to the `main` branch of the frontend GitHub repository. Every push triggers an automatic build and deployment.
+-   The **Node.js backend** and **PostgreSQL database** are hosted on **Render**. The backend service is also connected to its GitHub repository and redeploys automatically on every push to the `main` branch.
+
+---
+
+## 👤 Contact
+
+Ram - [LinkedIn](https://www.linkedin.com/in/your-linkedin-profile/) - your.email@example.com
+
+Project Link: [https://github.com/your-username/trash-clash](https://github.com/your-username/trash-clash)
